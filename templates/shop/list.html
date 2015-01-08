@@ -1,0 +1,97 @@
+{% extends "shop/base.html" %}
+{% load static %}
+{% block title %}My amazing blog{% endblock %}
+
+{% block content %}
+{% for item in object_list %}
+
+<div class="row">
+  <div class="col-sm-12 col-md-12">
+	<div class="panel panel-info">
+        <div class="panel-heading">
+			<h3 class="panel-title" >{{ item.name }}</h3>
+        </div>
+        <div class="panel-body">
+			<div class="row" style="height: 150px;">
+				<div class="col-sm-12 col-md-3" style="height: inherit;" >
+					<div style="line-height:125px;text-align:center; overflow:hidden; height: inherit;border: 1px solid rgb(51, 122, 183);; border-radius: 5px; margin-left: 10px; padding: 10px;">
+						<img style="max-height: 100%; max-width: 100%; vertical-align: middle;"
+						src="{{ MEDIA_URL }}{{ item.photo }}"
+                        alt="...">
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-9">
+
+                    <div class="wrapper">
+						<p class="price">Цена: {{ item.price }}</p>
+                        <p class="available">{{ item.get_available_display |default_if_none:"" }}</p>
+                        <p><b>Краткое описание: </b>{{ item.shot_desc }}</p>
+					</div>
+				<p style=" ">
+                    <a href="{% url 'item_view' pk=item.pk slug=item.category.slug%}"  class="btn btn-primary" role="button">Подробней</a>
+{#                    <a href="add_order/{{ item.pk }}" id="qqq" data-toggle="modal" data-target="#myModal" class="btn btn-default order_item" role="button" >Заказать</a>#}
+                     <a href="/add_order/{{ item.pk }}" id="ss1" class="btn btn-default order_item" role="button" >Заказать</a>
+                </p>
+{#				<button type="button" class="btn btn-primary btn-lg" id="showModdal_{{ item.pk }}"  data-toggle="modal" data-target="#myModal">#}
+{#				  Launch demo modal#}
+{#				</button>#}
+
+
+
+
+
+
+
+				</div>
+			</div>
+        </div>
+	</div>
+  </div>
+</div>
+
+{% endfor %}
+
+
+<!-- Modal -->
+<div class="modal fade " id="orderAddModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" style="" id="myModalLabel">123123123</h3>
+
+      </div>
+      <div class="modal-body">
+          <form id="OrderForm" >
+			  <div class="form-group hide">
+				<label for="quantity">ID</label>
+				<input class="form-control" type='number' name="id" value="">
+			  </div>
+			  <div class="form-group">
+				<label for="quantity">Количество</label>
+				<input class="form-control" id="quantity" type='number' name="quantity" min="1" value="1">
+			  </div>
+			  <div class="form-group">
+				<label for="name">Ваше имя</label>
+				<input class="form-control" id="name" type='text' name="name" >
+			  </div><div class="form-group">
+				<label for="tel">Контактный телефон(обязательное поле)</label>
+				<input class="form-control" id="tel" type="tel" name="usrtel" required  ">
+			  </div>
+              <div class="form-group">
+				<label for="mail">Электранная почта</label>
+				<input class="form-control" id="mail" type="email" name="email">
+			  </div>
+{#              <button class=«btn» id="OrderFormSubmitBtn" data-dismiss=«modal» aria-hidden=«true»>Оформить заказ</button>#}
+              <a id="OrderFormSubmitBtn" class="btn btn-primary">Оформить заказ</a>
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
