@@ -23,7 +23,7 @@
 				<div class="col-sm-12 col-md-9">
 
                     <div class="wrapper">
-						<p class="price">Цена: {{ item.price }}</p>
+						<p class="price">Цена: {{ item.price }} грн.</p>
                         <p class="available">{{ item.get_available_display |default_if_none:"" }}</p>
                         <p><b>Краткое описание: </b>{{ item.shot_desc }}</p>
 					</div>
