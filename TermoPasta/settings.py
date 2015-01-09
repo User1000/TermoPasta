@@ -30,6 +30,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    'admin_tools',
+    'admin_tools.theming',
+    'admin_tools.menu',
+    'admin_tools.dashboard',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -53,6 +57,10 @@ MIDDLEWARE_CLASSES = (
 
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.request',
+    'django.contrib.auth.context_processors.auth',
+)
 ROOT_URLCONF = 'TermoPasta.urls'
 
 WSGI_APPLICATION = 'TermoPasta.wsgi.application'
@@ -71,7 +79,8 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'Ru-ru'
 
 TIME_ZONE = 'UTC'
 
@@ -81,7 +90,11 @@ USE_L10N = True
 
 USE_TZ = True
 
+# For change format of certain locale
+# from django.conf.locale.en import formats as en_formats
+# en_formats.DATETIME_FORMAT = "d b Y H:i:s"
 
+# TIME_ZONE = 'Europe/Bratislava'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
