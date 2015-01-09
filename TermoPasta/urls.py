@@ -7,13 +7,13 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.generic.base import RedirectView, TemplateView
 
 urlpatterns = patterns('',
+
     # Examples:
     # url(r'^$', ItemListView.as_view()),
     url(r'^admin_tools/', include('admin_tools.urls')),
     url(r'^$', RedirectView.as_view(url='cat/termopasta/', permanent=False), name='index'),
     # url(r'^about/$', TemplateView.as_view(template_name="shop/about.html"), name='about'),
     # url(r'^contacts/$', TemplateView.as_view(template_name="shop/contacts.html"), name='contacts'),
-
 
     # url(r'^item/(?P<pk>\d+)$', ItemDetailView.as_view(), name='item_view'),
     url(r'^add_order/(\d+)$', add_order),
