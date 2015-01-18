@@ -24,9 +24,9 @@ urlpatterns = patterns('',
 
     url(r'^cat/(?P<slug>\w+)/$', ItemListView.as_view(), name='category_url'),
     url(r'^cat/(?P<slug>\w+)/item/(?P<pk>\d+)/$', ItemDetailView.as_view(), name='item_view'),
-) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT, show_indexes=True)
 
 if settings.DEBUG:
     urlpatterns += patterns('django.views.static',
-        (r'media/(?P<path>.*)', 'serve', {'document_root': settings.MEDIA_ROOT}),
+        (r'media/(?P<path>.*)', 'serve', {'document_root': settings.MEDIA_ROOT, 'show_indexes' : True}),
     )

@@ -20,9 +20,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'u_56017n5c0f9@^!_(n$ok$qr2ztu_p&jmi=o$++3m7gb$d_$6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-TEMPLATE_DEBUG = False
+TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -63,9 +63,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.media",
     "django.core.context_processors.static",
 )
-ROOT_URLCONF = 'TermoPasta.urls'
+ROOT_URLCONF = 'termopasta.urls'
 
-WSGI_APPLICATION = 'TermoPasta.wsgi.application'
+WSGI_APPLICATION = 'termopasta.wsgi.application'
 
 
 # Database
@@ -103,7 +103,7 @@ USE_TZ = True
 SITE_ID = 2
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'files', 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
@@ -115,8 +115,14 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,  'templates'),
 )
 
+#ADMIN_MEDIA_PREFIX = '/static/'
+
+#MEDIA_ROOT = '/home/termopas/domains/termopasta.com.ua/public_html/media/'
+#STATIC_ROOT = '/home/termopas/domains/termopasta.com.ua/public_html/static/'
+
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'olexander.stepanenko@gmail.com'
 EMAIL_HOST_PASSWORD = 'g47jp4q4r68yhkt'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+

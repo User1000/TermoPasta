@@ -32,7 +32,7 @@ max-height: 250px;
 }
 
 .container{
-	max-width: 800px;
+	max-width: 1000px;
 }
 
 .alert{
@@ -41,7 +41,7 @@ max-height: 250px;
 }
 
 body{
-	background: url(../img/bbb.PNG) repeat white;
+	background: url(../img/bbb.png) repeat white;
 }
 
 .container{
