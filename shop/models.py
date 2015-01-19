@@ -24,17 +24,19 @@ class Item(models.Model):
         ('notavail', u'нет в наличии')
     )
 
-    name = models.CharField(max_length=30, verbose_name=u"Наименование",)
+    name = models.CharField(max_length=60, verbose_name=u"Наименование",)
     shot_desc = models.TextField(blank=True, null=True, max_length=200, verbose_name=u"Краткое описание")
     long_desc = models.TextField(blank=True, null=True, verbose_name = u"Полное описание")
     photo = models.ImageField(upload_to='shop/images', blank=True, null=True, default='shop/images/fal.jpg', verbose_name=u"Фото")
     category = models.ForeignKey(Category, verbose_name=u"Категория")
     price = models.IntegerField(default=None, blank=True, null=True, verbose_name=u"Цена" )
     available = models.CharField(max_length=10, choices=AVAILABLE, blank=True, null=True, default=None, verbose_name=u"Наличие")
+    order_index = models.IntegerField(blank=True, null=True, default=-1, verbose_name=u"Индекс сортировки" )
 
     class Meta:
         verbose_name = "Товар"
         verbose_name_plural = "Товары"
+        ordering = ('-order_index',)
 
     def __unicode__(self):
         return u"%s (категория: %s, цена: %iгрн)" % (self.name, self.category, self.price)

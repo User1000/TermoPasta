@@ -12,9 +12,12 @@ class AdminOrder(admin.ModelAdmin):
     inlines = [InlineOrderItem, ]
 
 
+class AdminItem(admin.ModelAdmin):
+    list_filter = ("category",)
+    list_display = ("name", "category", "price","order_index")
 
 admin.site.register(Category)
-admin.site.register(Item)
+admin.site.register(Item, AdminItem)
 admin.site.register(Order, AdminOrder)
 # admin.site.register(OrderItem)
 admin.site.register(Client)

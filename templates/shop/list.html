@@ -1,6 +1,5 @@
 {% extends "shop/base.html" %}
 {% load static %}
-{% block title %}My amazing blog{% endblock %}
 
 {% block content %}
 {% for item in object_list %}
@@ -13,35 +12,25 @@
         </div>
         <div class="panel-body">
 			<div class="row" style="height: 150px;">
-				<div class="col-sm-12 col-md-3" style="height: inherit;" >
+				<div class="col-xs-12 col-sm-12 col-md-3" style="height: inherit;" >
 					<div style="line-height:125px;text-align:center; overflow:hidden; height: inherit;border: 1px solid rgb(51, 122, 183);; border-radius: 5px; margin-left: 10px; padding: 10px;">
 						<img style="max-height: 100%; max-width: 100%; vertical-align: middle;"
 						src="{{ MEDIA_URL }}{{ item.photo }}"
                         alt="...">
 					</div>
 				</div>
-				<div class="col-sm-12 col-md-9">
+				<div class="col-xs-12 col-sm-12 col-md-9">
 
                     <div class="wrapper">
 						<p class="price">Цена: {{ item.price }} грн.</p>
                         <p class="available">{{ item.get_available_display |default_if_none:"" }}</p>
                         <p><b>Краткое описание: </b>{{ item.shot_desc }}</p>
 					</div>
-				<p style=" ">
+				<p style="">
                     <a href="{% url 'item_view' pk=item.pk slug=item.category.slug%}"  class="btn btn-primary" role="button">Подробней</a>
 {#                    <a href="add_order/{{ item.pk }}" id="qqq" data-toggle="modal" data-target="#myModal" class="btn btn-default order_item" role="button" >Заказать</a>#}
                      <a href="/add_order/{{ item.pk }}" id="ss1" class="btn btn-default order_item" role="button" >Заказать</a>
                 </p>
-{#				<button type="button" class="btn btn-primary btn-lg" id="showModdal_{{ item.pk }}"  data-toggle="modal" data-target="#myModal">#}
-{#				  Launch demo modal#}
-{#				</button>#}
-
-
-
-
-
-
-
 				</div>
 			</div>
         </div>

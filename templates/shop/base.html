@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Шаблон</title>
+    <link rel="shortcut icon" type="image/png" href="{% static "shop/favicon/favicon.ico" %}"/>
+    <title>Термопаста на любой вкус по Украине</title>
 
     <!-- Bootstrap -->
     <link href="{% static "shop/css/bootstrap.min.css" %}"  rel="stylesheet">
@@ -16,21 +17,20 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <title>{% block title %}My amazing site{% endblock %}</title>
 </head>
 
 <body >
 <div class="container" >
 	<div class="header" >
 		<div class="row">
-			<div class="col-lg-9 col-md-5 col-xs-5">
-				<h1><a class="logo" href="/">ТЕРМОПАСТА<small>.КОМ.ЮА</small></a></h1>
-				<p><small>Комфорт для ваших кремнеевых друзей</small></p>
+			<div class="col-md-7 col-sm-7 col-xs-12">
+				<a class="logo" href="/"><h1>ТЕРМОПАСТА<small>.КОМ.ЮА</small></h1>
+				<p id="header-desc"><i>Комфорт для ваших кремнеевых друзей<i></p></a>
 			</div>
-			<div class="col-lg-3 col-md-5 col-xs-5">
-				<p class="tel">066 85 88 332 </p>
-				<p class="tel">066 85 88 332 </p>
-				<p><small>Наберите нас и мы Вам перезвоним!</small></p>
+			<div class="col-md-5 col-sm-5 col-xs-12 tels">
+				<p class="tel">091-941-06-27 </p>
+				<p class="tel">063-915-15-05 </p>
+				<p class="tel-desc"><small>Наберите нас и мы Вам перезвоним!</small></p>
 			</div>
 		</div>
 	</div>
@@ -88,8 +88,8 @@
 
 
 
-<div class="alert alert-warning bannerFix" role="alert">АКЦИЯ!!! КУпите два тюбика по цене одного!</div>
-
+{#<div class="alert alert-warning bannerFix" role="alert"></div>#}
+<div style="height: 15px" role="alert"></div>
 
         {% block content %}{% endblock %}
 
@@ -97,8 +97,8 @@
 
     	<footer>
 		<hr/>
-		termopasta.com.ua
-	</footer>
+		    termopasta.com.ua &copy;
+	    </footer>
     </div>
 
 <!-- jQuery (потрібно для JavaScript плагінів Bootstrap) -->

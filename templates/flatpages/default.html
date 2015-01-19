@@ -4,8 +4,8 @@
 
 {% block content %}
 <div class="static_page">
-   <h3>{{ flatpage.title }}</h3>
-<p>{{ flatpage.content }}
+   <h3 class="flat_header">{{ flatpage.title }}</h3>
+<p class="flat_content">{{ flatpage.content|linebreaks }}
 </p>
 </div>
 {% endblock %}
